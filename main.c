@@ -3,9 +3,9 @@
 
 struct No
 {
-    int month;
-    int day;
-    char description[100];
+    int mes;
+    int dia;
+    char descricao[100];
     struct No *esquerda;
     struct No *direita;
 };
@@ -33,8 +33,8 @@ Evento* criaArvore(){
 
 int main(){
     Evento *raiz = criaArvore();
-    int choice, month, day;
-    char description[100];
+    int esc, mes, dia;
+    char descricao[100];
 
     while (1){
         printf("\nMenu:\n");
@@ -45,32 +45,32 @@ int main(){
         printf("5. Sair\n");
 
         printf("Escolha uma opcao: ");
-        scanf("%d", &choice);
+        scanf("%d", &esc);
 
-        switch (choice)
+        switch (esc)
         {
         case 1:
             printf("Informe o dia (1-31): ");
-            scanf("%d", &day);
+            scanf("%d", &dia);
             printf("Informe o mes (1-12): ");
-            scanf("%d", &month);
+            scanf("%d", &mes);
             printf("Informe a descricao: ");
-            scanf(" %[^\n]", description);
+            scanf(" %[^\n]", descricao);
             
             break;
         case 2:
             printf("Informe o dia (1-31) do evento a ser editado: ");
-            scanf("%d", &day);
+            scanf("%d", &dia);
             printf("Informe o mês (1-12) do evento a ser editado: ");
-            scanf("%d", &month);
+            scanf("%d", &mes);
             printf("Informe a nova descriçao: ");
-            scanf(" %[^\n]", description);
+            scanf(" %[^\n]", descricao);
             break;
         case 3:
             printf("Informe o dia (1-31) do evento a ser excluido: ");
-            scanf("%d", &day);
+            scanf("%d", &dia);
             printf("Informe o mês (1-12) do evento a ser excluido: ");
-            scanf("%d", &month);
+            scanf("%d", &mes);
             break;
         case 4:
             printf("\nEventos em ordem:\n");
