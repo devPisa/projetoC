@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct No
+{
+    int month;
+    int day;
+    char description[100];
+    struct No *esquerda;
+    struct No *direita;
+};
+typedef struct No no;
+
+typedef struct No *Evento;
+
+#include "src/deletar.h"
+#include "src/editar.h"
+#include "src/visualizar.h"
+#include "src/inserir.h"
+#include "src/balancear.h"
+
+
+Evento* criaArvore(){
+    Evento *raiz = (Evento*) malloc (sizeof(Evento));
+    if (raiz != NULL){
+        *raiz = NULL;
+    }else{
+        printf("Erro na alocacao");
+        return 0;
+    };
+    return raiz;
+}
+
+int main(){
+    Evento *raiz = criaArvore();
+    int choice, month, day;
+    char description[100];
+
+    while (1){
+        printf("\nMenu:\n");
+        printf("1. Inserir evento\n");
+        printf("2. Editar evento\n");
+        printf("3. Excluir evento\n");
+        printf("4. Listar eventos\n");
+        printf("5. Sair\n");
+
+        printf("Escolha uma opcao: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            printf("Informe o dia (1-31): ");
+            scanf("%d", &day);
+            printf("Informe o mes (1-12): ");
+            scanf("%d", &month);
+            printf("Informe a descricao: ");
+            scanf(" %[^\n]", description);
+            
+            break;
+        case 2:
+            printf("Informe o dia (1-31) do evento a ser editado: ");
+            scanf("%d", &day);
+            printf("Informe o mês (1-12) do evento a ser editado: ");
+            scanf("%d", &month);
+            printf("Informe a nova descriçao: ");
+            scanf(" %[^\n]", description);
+            break;
+        case 3:
+            printf("Informe o dia (1-31) do evento a ser excluido: ");
+            scanf("%d", &day);
+            printf("Informe o mês (1-12) do evento a ser excluido: ");
+            scanf("%d", &month);
+            break;
+        case 4:
+            printf("\nEventos em ordem:\n");
+            
+            break;
+        case 5:
+            exit(1);
+        default:
+            printf("Opcao invalida. Tente novamente.\n");
+        }
+    }
+
+    return 0;
+}
+
