@@ -56,7 +56,8 @@ int main(){
             scanf("%d", &mes);
             printf("Informe a descricao: ");
             scanf(" %[^\n]", descricao);
-            
+            insere_elemento(raiz, dia, mes, descricao);
+
             break;
         case 2:
             printf("Informe o dia (1-31) do evento a ser editado: ");
@@ -73,8 +74,10 @@ int main(){
             scanf("%d", &mes);
             break;
         case 4:
-            printf("\nEventos em ordem:\n");
-            
+                printf("\nEventos em ordem:\n");
+                visualizar_arvore(*raiz);
+                break;
+
             break;
         case 5:
             exit(1);
