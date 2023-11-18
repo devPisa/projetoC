@@ -34,7 +34,6 @@ int insere_elemento(Evento *raiz, int dia, int mes, char descricao[100])
                 }
                 if(novo->mes > atual->mes || (novo->mes == atual->mes && novo->dia > atual->dia))
                 {
-                    printf("é maior fdp");
                     atual = atual->direita;
                 }else
                 {
